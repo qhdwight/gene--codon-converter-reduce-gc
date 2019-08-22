@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <title>Title</title>
+    <link rel='stylesheet' type='text/css' href='static/semantic/semantic.min.css'>
+</head>
+<body style='background-color: #1c1c1c'>
+{% block content %}
+{% endblock %}
+<script src='static/jquery-3.4.1.min.js'></script>
+<script src='static/semantic/semantic.min.js'></script>
+<script>
+    $('input:file').change(function () {
+        const $this = $(this);
+        $this.prev().html("File Selected: " + $this.get(0).files[0].name);
+    })
+</script>
+{% block scripts %}
+{% endblock %}
+</body>
+</html>

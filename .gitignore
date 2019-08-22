@@ -69,3 +69,5 @@ fabric.properties
 
 
 venv/
+
+temp/

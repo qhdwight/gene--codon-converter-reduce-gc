@@ -1,0 +1,52 @@
+{% extends 'base.jinja2' %}
+{% block content %}
+    <div class='ui inverted vertical masthead center aligned segment'>
+        <div class='ui container'>
+            <div class='ui inverted secondary pointing menu'>
+                <a class='active item'>Optimizer</a>
+                <a class='item'>About</a>
+            </div>
+        </div>
+        <div class='ui inverted text container'>
+            <div class='ui inverted segment'>
+                <h2>Gene Optimizer</h2>
+            </div>
+        </div>
+        <div class='ui inverted divider'></div>
+        <div class='ui text container'>
+            <form class='ui inverted form segment' method='post' accept-charset='utf-8' enctype='multipart/form-data'>
+                <div class='inverted field'>
+                    <label>Weight</label>
+                    <input placeholder='Weight 0.0-1.0' name='weight' type='text'>
+                </div>
+                <div class='inverted field'>
+                    <label>No File Selected</label>
+                    <input type='file' id='input-file' style='display: none' name='input-file'>
+                    <label for='input-file' class='ui huge inverted button'>
+                        <i class='ui upload icon'></i>
+                        Upload Sequence
+                    </label>
+                </div>
+                <button class='ui inverted fluid primary button' type='submit'>Submit</button>
+                {% if error is defined %}
+                    <div class='ui error message'>
+                        {{ error }}
+                    </div>
+                {% endif %}
+            </form>
+        </div>
+    </div>
+{% endblock %}
+{% block scripts %}
+    {% if error is defined %}
+        <script>
+            $('form').addClass('error')
+        </script>
+    {% endif %}
+    <script>
+        $form = $('form');
+        $form.on('submit', function () {
+            $form.removeClass('error')
+        })
+    </script>
+{% endblock %}
