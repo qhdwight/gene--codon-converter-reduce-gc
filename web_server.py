@@ -49,4 +49,5 @@ if __name__ == '__main__':
         config.add_view(main_page, route_name='dashboard')
         config.add_static_view(name='static', path='templates/static')
         app = config.make_wsgi_app()
-    serve(app, host='localhost', port=8888)
+    port = os.environ.get("PORT", 8888)
+    serve(app, host='0.0.0.0', port=port)
